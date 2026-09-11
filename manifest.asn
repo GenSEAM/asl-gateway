@@ -1,0 +1,6 @@
+(:package asl-gateway
+ :version "1.0.0"
+ :entry "src/server.asl"
+ :description "Sovereign L7 Cognitive Gateway: LMK hierarchical key management, ASN wire protocol, CoT quarantine, and verbal ESH interception"
+ :asl-first true
+ :dependencies [])

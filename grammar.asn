@@ -1,0 +1,75 @@
+(:grammar
+  :package asl-gateway
+  :version "1.0.0"
+  :tokens-baseline 2
+  :symbols [
+    (:sym :name "LmkKeySource" :kind :type :tokens 2)
+    (:sym :name "LmkProfile" :kind :type :tokens 2)
+    (:sym :name "LmkHierarchyInput" :kind :type :tokens 2)
+    (:sym :name "GatewayChannel" :kind :type :tokens 2)
+    (:sym :name "GatewayTurnVerdict" :kind :type :tokens 2)
+
+    (:sym :name "run-tests" :kind :fn :tokens 2)
+    (:sym :name "make-lmk-profile" :kind :fn :tokens 3
+          :rationale "Constructs an LmkProfile record")
+    (:sym :name "mask-api-key" :kind :fn :tokens 3
+          :rationale "Securely masks secret key preventing leakage in UI and telemetry logs")
+    (:sym :name "resolve-lmk-profile" :kind :fn :tokens 3
+          :rationale "Resolves provider credentials and endpoints through the 4-tier hierarchy")
+    (:sym :name "format-lmk-profile-asn" :kind :fn :tokens 4
+          :rationale "Serializes profile to canonical ASN representation")
+    (:sym :name "format-wire-headers" :kind :fn :tokens 3
+          :rationale "Returns canonical ASN wire protocol negotiation headers")
+    (:sym :name "is-tool-call?" :kind :fn :tokens 3
+          :rationale "Determines if S-expression is an imperative tool call rather than declarative data")
+    (:sym :name "is-declarative-asn?" :kind :fn :tokens 3
+          :rationale "Determines if S-expression is declarative AST or data structure to preserve in UI stream")
+    (:sym :name "extract-tool-name" :kind :fn :tokens 3
+          :rationale "Extracts tool name from imperative tool call S-expression")
+    (:sym :name "format-tool-call-frame" :kind :fn :tokens 4
+          :rationale "Formats tool call into standard compact ASN S-expression")
+    (:sym :name "demux-raw-asn-turn" :kind :fn :tokens 4
+          :rationale "Demuxes turn into UI text and extracted tool call frames")
+    (:sym :name "extract-think-blocks" :kind :fn :tokens 3
+          :rationale "Separates think block from remaining conversational stream")
+    (:sym :name "detect-esh-violation" :kind :fn :tokens 3
+          :rationale "Detects verbal execution simulation claims without verified execution proof")
+    (:sym :name "inspect-completion-turn" :kind :fn :tokens 3
+          :rationale "Executes full L7 cognitive gateway inspection on completion turn")
+
+    (:sym :name "test-ui-override-precedence" :kind :fn :tokens 4
+          :rationale "Verifies dynamic UI override takes highest precedence")
+    (:sym :name "test-local-workspace-precedence" :kind :fn :tokens 4
+          :rationale "Verifies local workspace config takes precedence")
+    (:sym :name "test-global-user-precedence" :kind :fn :tokens 4
+          :rationale "Verifies global user config takes precedence")
+    (:sym :name "test-env-fallback" :kind :fn :tokens 3
+          :rationale "Verifies environment variable fallback")
+    (:sym :name "test-mask-api-key" :kind :fn :tokens 4
+          :rationale "Verifies secret keys are securely masked")
+    (:sym :name "test-format-lmk-profile-asn" :kind :fn :tokens 4
+          :rationale "Verifies ASN profile serialization")
+    (:sym :name "test-wire-headers" :kind :fn :tokens 3
+          :rationale "Verifies protocol negotiation headers")
+    (:sym :name "test-is-tool-call" :kind :fn :tokens 4
+          :rationale "Verifies imperative tool call detection")
+    (:sym :name "test-is-declarative-asn" :kind :fn :tokens 4
+          :rationale "Verifies declarative AST identification")
+    (:sym :name "test-extract-tool-name" :kind :fn :tokens 4
+          :rationale "Verifies tool name extraction")
+    (:sym :name "test-format-tool-call-frame" :kind :fn :tokens 4
+          :rationale "Verifies tool call frame formatting")
+    (:sym :name "test-demux-raw-asn-turn" :kind :fn :tokens 4
+          :rationale "Verifies demuxing raw turn into UI and tool frames")
+    (:sym :name "test-extract-think-blocks" :kind :fn :tokens 4
+          :rationale "Verifies think block extraction")
+    (:sym :name "test-detect-esh-violation" :kind :fn :tokens 4
+          :rationale "Verifies detection of ungrounded verbal claims")
+    (:sym :name "test-inspect-completion-clean-turn" :kind :fn :tokens 5
+          :rationale "Verifies clean turn inspection")
+    (:sym :name "test-inspect-completion-esh-rejection" :kind :fn :tokens 5
+          :rationale "Verifies ESH rejection without execution")
+    (:sym :name "test-inspect-completion-quarantine" :kind :fn :tokens 4
+          :rationale "Verifies CoT quarantine")
+  ]
+)
