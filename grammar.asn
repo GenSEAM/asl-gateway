@@ -71,5 +71,31 @@
           :rationale "Verifies ESH rejection without execution")
     (:sym :name "test-inspect-completion-quarantine" :kind :fn :tokens 4
           :rationale "Verifies CoT quarantine")
+    (:sym :name "BrowserInferenceTarget" :kind :type :tokens 3
+          :rationale "Enum of supported in-browser and local inference execution targets")
+    (:sym :name "BrowserTurnVerdict" :kind :type :tokens 3
+          :rationale "Record of L7 Cognitive Gateway inspection results for browser inference")
+    (:sym :name "target-to-string" :kind :fn :tokens 3
+          :rationale "Converts BrowserInferenceTarget enum variant to wire string")
+    (:sym :name "extract-browser-think-blocks" :kind :fn :tokens 4
+          :rationale "Extracts think scratchpad blocks from browser inference completion stream")
+    (:sym :name "detect-browser-esh-violation" :kind :fn :tokens 4
+          :rationale "Detects verbal execution simulation claims without verified execution proof in browser")
+    (:sym :name "inspect-browser-turn" :kind :fn :tokens 3
+          :rationale "Executes full L7 cognitive gateway inspection for in-browser inference")
+    (:sym :name "convert-json-to-asn-toolcall" :kind :fn :tokens 5
+          :rationale "Converts incoming JSON tool calling payload into compact canonical ASN tool call")
+    (:sym :name "format-browser-wire-payload" :kind :fn :tokens 4
+          :rationale "Formats inference request payload for target browser or local engine")
+    (:sym :name "test-browser-think-quarantine" :kind :fn :tokens 4
+          :rationale "Verifies CoT quarantine inside browser execution stream")
+    (:sym :name "test-browser-esh-interception" :kind :fn :tokens 4
+          :rationale "Verifies detection of ungrounded verbal claims in browser turn")
+    (:sym :name "test-browser-clean-turn" :kind :fn :tokens 4
+          :rationale "Verifies valid turn passes inspection in browser context")
+    (:sym :name "test-json-to-asn-toolcall-conversion" :kind :fn :tokens 5
+          :rationale "Verifies converting JSON tool call to compact canonical ASN tool call")
+    (:sym :name "test-format-browser-wire-payload" :kind :fn :tokens 5
+          :rationale "Verifies formatting inference request payload for WebGPU")
   ]
 )

@@ -81,27 +81,5 @@ asl test asl-gateway/tests/server-test.asl
 
 ---
 
-## 6. In-Container Orchestration (`bin/asl-runner`)
 
-For containerized environments (Modal, Docker, Harbor):
-- `bin/asl-runner [command...]`: Self-contained entrypoint that verifies gateway daemon health on `http://127.0.0.1:8765/health`, auto-starts it if offline, exports `OPENAI_BASE_URL="http://127.0.0.1:8765/v1"` and `NO_PROXY="127.0.0.1,localhost"`, and executes the command under sovereign cognitive protection.
-- `bin/asl-gateway run`: Runs the gateway in foreground mode as a supervisor entrypoint.
-- Non-null sanitization: Guarantees `message.content` is always a valid string (never `null` or `NoneType`), eliminating verifier crashes across benchmark suites.
-
----
-
-## 7. Modal Cloud & Terminal-Bench 4.0 Deployment
-
-When running on Modal or Terminal-Bench:
-```bash
-# Export provider credentials into container environment:
-export OPENROUTER_API_KEY="..." # or GEMINI_API_KEY, OPENAI_API_KEY
-export ASL_GATEWAY_MODEL="gemma-4-31b-it"
-
-# Execute agent self-contained:
-bin/asl-runner bin/agent -p "Solve task"
-
-# Or invoke Harbor runner under in-container gateway routing:
-bin/asl-runner harbor run -d terminal-bench/terminal-bench@4.0.0 --environment modal
-```
 
