@@ -1,8 +1,13 @@
-# asl-gateway
+# @genseam/asl-gateway (ASL Cognitive Gateway)
 
 Sovereign L7 Cognitive Gateway for AgentScript: Hierarchical LMK (LLM Models & Keys) Nexus, Tri-Channel Demuxing, Quarantined CoT Reasoning, and Pure ASN Wire Protocol Negotiation.
 
 ---
+
+## Installation
+```bash
+asl get github.com/GenSEAM/asl-gateway
+```
 
 ## 1. Overview & Architectural Role
 
